@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+
+</style>
+
+<head>
+    <title>Smishing? Smash!</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>문자메시지 내용 입력:</legend>
+        Message:
+        <input name="message" type="text" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<br>
+<div class="result" algin="center">
+    {% if result %}
+    <br> 스미싱 여부는 ...?! 
+    <p style="font-size:30px">{{ result }}입니다.</p>
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }} <br>
+    	{% endfor %}
+		<br>
+    {% endif %}
+</div>
+
+</html>
