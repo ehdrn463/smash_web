@@ -44,6 +44,53 @@
 |웹프로그래밍|AWS-EC2|웹 배포 소프트웨어|
 <br>
 
+
+-----------
+### 코드를 통한 진행상황 설명 (세부 내용은 weekly_colab 폴더 참조)
+
+1. 0409_EDA.ipynb
+   탐색적 데이터 분석 과정
+   1) Konlpy - Mecab 이용한 형태소 분석
+      colab 내부에서 konlpy 및 mecab 설치 후 Mecab() 라이브러리 이용
+      문자메시지 내용을 형태소분석하여 새로운 칼럼을 추가함
+   2) TF-IDF 
+      각 Label에 대해 TF-IDF 기준 상위 빈출 100개 단어 도출
+      분석 결과, 공통적인 단어 31개, 각 label에 대한 단어 69개가 도출됨
+
+2. 0415_Cleansing.ipynb
+   전처리하는 과정이 주된 내용임
+   1) 알파벳을 소문자로 통일함
+   2) 불용어(한글의 형식형태소인 '은/는/이/가'처럼 의미가 없는 단어) 및 1-2)의 결과인 공통적인 빈출단어 제거
+   3) 특수문자 제거
+
+3. 0423_Word_Embedding.ipynb
+   워드임베딩: 자연어를 컴퓨터가 이해하고, 효율적으로 처리하게 하기 위해서 컴퓨터가 이해할 수 있도록 자연어를 정수로 나타냄
+   1) TfIdf를 이용한 정수임베딩 진행
+   
+4. 0430_LGBM.ipynb
+   1) classification 모델로 lgbm을 사용함
+   k-fold cross-validation에서 k를 4로, seed를 3번 줌으로써 12번 모델링을 진행함
+   -> 12개의 모델의 예측값으로 결과분석함
+   2) classification 모델로 svm을 사용함
+   세부 내용은 lgbm 방식과 동일함
+   
+5. 0506_Modeling 검증.ipynb
+   seed를 랜덤시드로 30번 반복하여 4번의 LGBM 및 SVM의 분석결과를 재검증함
+   
+6. 0514_LIME.ipynb
+   Interpretable Machine Learning 기법인 LIME 적용
+   
+7. 0526_FocusingOnFalseDel
+   LGBM과 SVM의 False record를 비교분석하여 더 정확도, F1-score가 높은 모델 조합을 분석함
+   
+8. 0603_LSTM_Modeling.ipynb
+   LSTM 딥러닝 모델 기법을 적용하여 추가적으로 classification 분석 진행
+   
+9. 0617_svmNlgbm.ipynb
+   SVM과 LGBM을 직렬적으로 조합하여 더 나은 모델 구성
+   (메인모델인 SVM의 예측확률이 5:5 ~ 2:8로 확신을 갖지 못할 때 적용)
+     
+
 -------------
 ### 스미싱 문자 데이터 출처
 #### 데이콘 금융 문자 분석 경진대회 https://dacon.io/competitions/official/235401/overview/
