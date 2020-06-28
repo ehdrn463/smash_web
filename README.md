@@ -23,7 +23,7 @@
 <img src = https://user-images.githubusercontent.com/41279466/85946904-8830ad80-b982-11ea-98a9-ad939e16130e.PNG width = 60%>
 
 ### 5. SVM + LGBM 모델 적용의 분석 결과
-<img src = https://user-images.githubusercontent.com/41279466/85949948-a1daf080-b994-11ea-89b0-a87ffc401984.PNG>
+<img src = https://user-images.githubusercontent.com/41279466/85949948-a1daf080-b994-11ea-89b0-a87ffc401984.PNG width = 60%>
 
 <br>
 
